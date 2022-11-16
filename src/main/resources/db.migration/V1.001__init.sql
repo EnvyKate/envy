@@ -9,13 +9,13 @@ create table crm.staff(
     constraint uuid_staff unique (uuid)
 );
 
-create table crm.client(
+create table crm.customer(
    id integer not null,
    uuid uuid not null,
    name varchar,
    phone_number varchar,
-   constraint pk_client primary key (id),
-   constraint uuid_client unique (uuid)
+   constraint pk_customer primary key (id),
+   constraint uuid_customer unique (uuid)
 );
 
 create table crm.qualification(
@@ -32,22 +32,22 @@ create table crm.procedure(
     uuid uuid not null,
     name varchar,
     description varchar,
-    duration integer
-    constraint pk_qualification primary key (id),
-    constraint uuid_qualification unique (uuid)
+    duration integer,
+    constraint pk_procedure primary key (id),
+    constraint uuid_procedure unique (uuid)
 );
 
 create table crm.staff_qualification(
     id integer not null,
     staff_id integer not null,
-    qualification_id not null,
+    qualification_id integer not null,
     constraint pk_sq primary key (id)
 );
 
 create table crm.procedure_price(
     id integer not null,
     procedure_id integer not null,
-    qualification_id not null,
+    qualification_id integer not null,
     price double precision,
     constraint pk_pp primary key (id)
 );
@@ -55,7 +55,7 @@ create table crm.procedure_price(
 create table crm.visit(
     id integer not null,
     staff_id integer not null,
-    client_id integer,
+    customer_id integer,
     procedure_id integer not null,
     visit_time timestamp,
     constraint pk_visit primary key (id)

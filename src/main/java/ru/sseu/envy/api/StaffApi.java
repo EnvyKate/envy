@@ -8,6 +8,10 @@ import ru.sseu.envy.dto.StaffUpdateDto;
 
 import java.util.UUID;
 
+/**
+ * API по работе с Персоналом
+ */
+@RestController
 @RequestMapping(value = "/api/v1/staff", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface StaffApi {
 

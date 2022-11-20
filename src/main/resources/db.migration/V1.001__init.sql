@@ -74,4 +74,4 @@ create table crm.discount(
     discount_value double precision,
     constraint pk_discount primary key (id),
     constraint uuid_discount unique (uuid)
-)
+);

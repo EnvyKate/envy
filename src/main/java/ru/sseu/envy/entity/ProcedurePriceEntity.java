@@ -2,21 +2,15 @@ package ru.sseu.envy.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.UUID;
 
-/**
- * Сущность "Персонал"
- */
 @Entity
 @Getter
 @Setter
-@Accessors(chain = true)
-@Table(schema = "crm", name = "staff")
-public class StaffEntity {
+@Table(schema = "crm", name = "procedure_price")
+public class ProcedurePriceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,17 +23,12 @@ public class StaffEntity {
         this.setUuid(UUID.randomUUID());
     }
 
-    /**
-     * ФИО
-     */
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "procedure_id", updatable = false, insertable = false)
+    private Integer procedureId;
 
-    /**
-     * Дата трудоустройства
-     */
-    @Column(name = "hire_date", updatable = false, nullable = false)
-    private LocalDate hireDate;
+    @ManyToOne
+    @JoinColumn(name = "procedure_id")
+    private ProcedureEntity procedure;
 
     @Column(name = "qualification_id", insertable = false, updatable = false)
     private Integer qualificationId;
@@ -47,5 +36,11 @@ public class StaffEntity {
     @ManyToOne
     @JoinColumn(name = "qualification_id")
     private QualificationEntity qualification;
+
+    @Column(name = "price")
+    private Double price;
+
+    @Column(name = "discount_available")
+    private boolean discountAvailable;
 
 }

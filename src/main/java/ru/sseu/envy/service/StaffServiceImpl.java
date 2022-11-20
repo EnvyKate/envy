@@ -9,6 +9,7 @@ import ru.sseu.envy.dto.StaffDto;
 import ru.sseu.envy.dto.StaffUpdateDto;
 import ru.sseu.envy.entity.StaffEntity;
 import ru.sseu.envy.mapper.StaffMapper;
+import ru.sseu.envy.repository.QualificationRepository;
 import ru.sseu.envy.repository.StaffRepository;
 
 import java.util.UUID;
@@ -21,6 +22,8 @@ import java.util.UUID;
 public class StaffServiceImpl implements StaffService {
 
     private final StaffRepository repository;
+
+    private final QualificationRepository qualificationRepository;
 
     private final StaffMapper mapper;
 
@@ -36,7 +39,7 @@ public class StaffServiceImpl implements StaffService {
 
         entity.setName(dto.getName());
         entity.setHireDate(dto.getHireDate().toLocalDate());
-
+        entity.setQualification(qualificationRepository.getEntityByUuid(dto.getQualificationUuid()));
         StaffEntity savedEntity = repository.save(entity);
 
         return mapper.toDto(savedEntity);
@@ -48,10 +51,9 @@ public class StaffServiceImpl implements StaffService {
         StaffEntity entity = repository.getEntityByUuid(staffUuid);
 
         entity.setName(dto.getName());
+        entity.setQualification(qualificationRepository.getEntityByUuid(dto.getQualificationUuid()));
 
-        StaffEntity savedEntity = repository.save(entity);
-
-        return mapper.toDto(savedEntity);
+        return mapper.toDto(repository.save(entity));
     }
 
     @Override

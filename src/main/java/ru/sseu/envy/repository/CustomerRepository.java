@@ -6,8 +6,7 @@ import ru.sseu.envy.entity.CustomerEntity;
 
 import java.util.UUID;
 
-public interface CustomerRepository extends
-        BaseRepository<CustomerEntity> {
+public interface CustomerRepository extends BaseRepository<CustomerEntity> {
 
     @Override
     default CustomerEntity getEntityByUuid(UUID uuid) {

@@ -1,7 +1,6 @@
 package ru.sseu.envy.repository;
 
 import org.hibernate.ObjectNotFoundException;
-import org.springframework.data.jpa.repository.JpaRepository;
 import ru.sseu.envy.entity.StaffEntity;
 
 import java.util.UUID;
@@ -9,7 +8,7 @@ import java.util.UUID;
 /**
  * Репозиторий сушности "Персонал"
  */
-public interface StaffRepository extends JpaRepository<StaffEntity, Integer>, BaseRepository<StaffEntity> {
+public interface StaffRepository extends BaseRepository<StaffEntity> {
 
     @Override
     default StaffEntity getEntityByUuid(UUID uuid) {

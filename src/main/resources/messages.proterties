@@ -1,2 +1,8 @@
 # staff
 error.staff.not_found = Персонал {0} не найден
+error.customer.not_found = Клиент {0} не найден
+error.qualification.not_found = Квалификация {0} не найдена
+error.procedure.not_found = Услуга {0} не найдена
+error.discount.not_found = Скидка {0} не найдена
+error.visit.not_found = Посещение {0} не найдено
+error.procedure_price.not_found = Цена услуги {0} не найдена

@@ -41,4 +41,11 @@ public class StaffEntity {
     @Column(name = "hire_date", updatable = false, nullable = false)
     private LocalDate hireDate;
 
+    @Column(name = "qualification_id", insertable = false, updatable = false)
+    private Integer qualificationId;
+
+    @ManyToOne
+    @JoinColumn(name = "qualification_id")
+    private QualificationEntity qualification;
+
 }

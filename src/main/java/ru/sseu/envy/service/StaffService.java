@@ -1,5 +1,7 @@
 package ru.sseu.envy.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import ru.sseu.envy.dto.StaffCreateDto;
 import ru.sseu.envy.dto.StaffDto;
 import ru.sseu.envy.dto.StaffUpdateDto;
@@ -38,4 +40,6 @@ public interface StaffService {
      * @param staffUuid уник. идентификатор персонала
      */
     void deleteStaff(UUID staffUuid);
+
+    Page<StaffDto> getStaffList(Pageable page);
 }

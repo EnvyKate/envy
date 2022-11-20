@@ -1,6 +1,8 @@
 package ru.sseu.envy.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.sseu.envy.dto.CustomerCreateDto;
 import ru.sseu.envy.dto.CustomerDto;
@@ -18,8 +20,14 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService {
 
+    /**
+     * Репозиторий для работы с сущностью "Клиент"
+     */
     private final CustomerRepository repository;
 
+    /**
+     * Маппер сущности "Клиент"
+     */
     private final CustomerMapper mapper;
     @Override
     public CustomerDto getCustomer(UUID customerUuid) {
@@ -55,4 +63,11 @@ public class CustomerServiceImpl implements CustomerService {
 
         repository.delete(entity);
     }
+
+    @Override
+    public Page<CustomerDto> getCustomerList(Pageable page) {
+
+        return repository.findAll(page).map(mapper::toDto);
+    }
+
 }

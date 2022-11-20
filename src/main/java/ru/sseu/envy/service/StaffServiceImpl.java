@@ -1,6 +1,8 @@
 package ru.sseu.envy.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.sseu.envy.dto.StaffCreateDto;
 import ru.sseu.envy.dto.StaffDto;
@@ -58,5 +60,11 @@ public class StaffServiceImpl implements StaffService {
         StaffEntity entity = repository.getEntityByUuid(staffUuid);
 
         repository.delete(entity);
+    }
+
+    @Override
+    public Page<StaffDto> getStaffList(Pageable page) {
+
+        return repository.findAll(page).map(mapper::toDto);
     }
 }

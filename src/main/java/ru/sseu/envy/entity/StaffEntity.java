@@ -24,6 +24,11 @@ public class StaffEntity {
 
     private UUID uuid;
 
+    @PrePersist
+    public void init() {
+        this.setUuid(UUID.randomUUID());
+    }
+
     /**
      * ФИО
      */
@@ -35,9 +40,5 @@ public class StaffEntity {
      */
     @Column(name = "hire_date", updatable = false, nullable = false)
     private LocalDate hireDate;
-    @PrePersist
-    public void init() {
-        this.setUuid(UUID.randomUUID());
-    }
 
 }

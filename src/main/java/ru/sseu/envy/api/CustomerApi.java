@@ -1,5 +1,6 @@
 package ru.sseu.envy.api;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +8,7 @@ import ru.sseu.envy.dto.CustomerCreateDto;
 import ru.sseu.envy.dto.CustomerDto;
 import ru.sseu.envy.dto.CustomerUpdateDto;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -15,6 +17,9 @@ public interface CustomerApi {
 
     @GetMapping("{customerUuid}")
     ResponseEntity<CustomerDto> getCustomer(@PathVariable UUID customerUuid);
+
+    @GetMapping
+    ResponseEntity<List<CustomerDto>> getCustomerList(Pageable page);
 
     @PostMapping
     ResponseEntity<CustomerDto> createCustomer(@RequestBody CustomerCreateDto dto);

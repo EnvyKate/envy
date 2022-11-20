@@ -1,5 +1,7 @@
 package ru.sseu.envy.service;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import ru.sseu.envy.dto.CustomerCreateDto;
 import ru.sseu.envy.dto.CustomerDto;
 import ru.sseu.envy.dto.CustomerUpdateDto;
@@ -41,4 +43,7 @@ public interface CustomerService {
      * @param customerUuid уник. идентификатор клиента
      */
     void deleteCustomer(UUID customerUuid);
+
+
+    Page<CustomerDto> getCustomerList(Pageable page);
 }

@@ -5,8 +5,10 @@ create table crm.staff(
     uuid uuid not null,
     name varchar,
     hire_date date,
+    qualification_id integer not null,
     constraint pk_staff primary key (id),
     constraint uuid_staff unique (uuid)
+    foreign key (qualification_id) references crm.qualification (id)
 );
 
 create table crm.customer(
@@ -37,26 +39,39 @@ create table crm.procedure(
     constraint uuid_procedure unique (uuid)
 );
 
-create table crm.staff_qualification(
-    id integer not null,
-    staff_id integer not null,
-    qualification_id integer not null,
-    constraint pk_sq primary key (id)
-);
 
 create table crm.procedure_price(
     id integer not null,
+    uuid uuid not null,
     procedure_id integer not null,
     qualification_id integer not null,
     price double precision,
-    constraint pk_pp primary key (id)
+    discount_available bit not null,
+    constraint pk_pp primary key (id),
+    constraint uuid_procedure_price unique (uuid),
+    foreign key (procedure_id) references crm.procedure (id),
+    foreign key (qualification_id) references crm.qualification (id)
 );
 
 create table crm.visit(
     id integer not null,
+    uuid uuid not null,
     staff_id integer not null,
     customer_id integer,
     procedure_id integer not null,
     visit_time timestamp,
-    constraint pk_visit primary key (id)
+    constraint pk_visit primary key (id),
+    constraint uuid_visit unique (uuid),
+    foreign key (staff_id) references crm.staff (id),
+    foreign key (customer_id) references crm.customer (id),
+    foreign key (procedure_id) references crm.procedure (id)
 );
+
+create table crm.discount(
+    id integer not null,
+    uuid uuid not null,
+    payment_threshold double precision,
+    discount_value double precision,
+    constraint pk_discount primary key (id),
+    constraint uuid_discount unique (uuid)
+)

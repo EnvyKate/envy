@@ -10,7 +10,9 @@ import ru.sseu.envy.service.ProcedureService;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Реализация API по работе с процедурами
+ */
 @Controller
 @RequiredArgsConstructor
 public class ProcedureApiImpl implements ProcedureApi {

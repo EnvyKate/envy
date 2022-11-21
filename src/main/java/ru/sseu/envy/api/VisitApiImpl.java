@@ -10,7 +10,9 @@ import ru.sseu.envy.service.VisitService;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Реализация API по работе с визитами
+ */
 @Controller
 @RequiredArgsConstructor
 public class VisitApiImpl implements VisitApi {

@@ -7,18 +7,19 @@ import org.springframework.stereotype.Service;
 import ru.sseu.envy.dto.VisitDto;
 import ru.sseu.envy.entity.VisitEntity;
 import ru.sseu.envy.mapper.VisitMapper;
-import ru.sseu.envy.repository.CustomerRepository;
-import ru.sseu.envy.repository.ProcedureRepository;
-import ru.sseu.envy.repository.StaffRepository;
-import ru.sseu.envy.repository.VisitRepository;
+import ru.sseu.envy.repository.*;
 
 import java.util.UUID;
-
+/**
+ * Реализация сервиса по работе с посещением
+ */
 @Service
 @RequiredArgsConstructor
 public class VisitServiceImpl implements VisitService {
 
     private final VisitRepository repository;
+
+    private final VisitViewRepository viewRepository;
 
     private final CustomerRepository customerRepository;
 
@@ -26,18 +27,18 @@ public class VisitServiceImpl implements VisitService {
 
     private final ProcedureRepository procedureRepository;
 
-    private VisitMapper mapper;
+    private final VisitMapper mapper;
 
     @Override
     public Page<VisitDto> getVisitList(Pageable page) {
 
-        return repository.findAll(page).map(mapper::toDto);
+        return viewRepository.findAll(page).map(mapper::toDto);
     }
 
     @Override
     public VisitDto getVisit(UUID uuid) {
 
-        return mapper.toDto(repository.getEntityByUuid(uuid));
+        return mapper.toDto(viewRepository.getEntityByUuid(uuid));
     }
 
     @Override

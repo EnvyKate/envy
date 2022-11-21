@@ -10,7 +10,9 @@ import ru.sseu.envy.dto.CustomerUpdateDto;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * API по работе с Клиентами
+ */
 @RestController
 @RequestMapping(value = "/api/v1/customer", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface CustomerApi {

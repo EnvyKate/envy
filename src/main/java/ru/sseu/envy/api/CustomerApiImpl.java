@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- *
+ * Реализация API по работе с клинтами
  */
 @Controller
 @RequiredArgsConstructor

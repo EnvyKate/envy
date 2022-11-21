@@ -8,7 +8,9 @@ import ru.sseu.envy.dto.ProcedurePriceDto;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * API по работе с ценами процедур
+ */
 @RestController
 @RequestMapping(value = "/api/v1/procedure-price", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface ProcedurePriceApi {

@@ -10,7 +10,9 @@ import ru.sseu.envy.service.DiscountService;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Реализация API по работе со скидками
+ */
 @Controller
 @RequiredArgsConstructor
 public class DiscountApiImpl implements DiscountApi {

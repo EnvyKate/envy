@@ -25,29 +25,36 @@ public class VisitEntity {
     public void init() {
         this.setUuid(UUID.randomUUID());
     }
-
+    /**
+     * Уникальный идендификатор персонала
+     */
     @Column(name = "staff_id", updatable = false, insertable = false)
     private Integer staffId;
 
     @ManyToOne
     @JoinColumn(name = "staff_id")
     private StaffEntity staff;
-
+    /**
+     * Уникальный идендификатор посетителя
+     */
     @Column(name = "customer_id", updatable = false, insertable = false)
     private Integer customerId;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
-
+    /**
+     * Уникальный идендификатор процедуры
+     */
     @Column(name = "procedure_id", insertable = false, updatable = false)
     private Integer procedureId;
 
     @ManyToOne
     @JoinColumn(name = "procedure_id")
     private ProcedureEntity procedure;
-
+    /**
+     * Время визита
+     */
     @Column(name = "visit_time")
     private LocalDateTime visitTime;
-
 }

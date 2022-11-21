@@ -8,7 +8,9 @@ import ru.sseu.envy.dto.VisitDto;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * API по работе с посещением
+ */
 @RestController
 @RequestMapping(value = "/api/v1/visit", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface VisitApi {

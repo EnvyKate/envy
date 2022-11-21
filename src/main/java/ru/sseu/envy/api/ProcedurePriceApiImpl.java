@@ -10,14 +10,16 @@ import ru.sseu.envy.service.ProcedurePriceService;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Реализация API по работе с прайсом процедур
+ */
 @Controller
 @RequiredArgsConstructor
 public class ProcedurePriceApiImpl implements ProcedurePriceApi {
 
-    private ProcedurePriceService service;
+    private final ProcedurePriceService service;
 
-    private PageMapper<ProcedurePriceDto> pageMapper;
+    private final PageMapper<ProcedurePriceDto> pageMapper;
 
     @Override
     public ResponseEntity<List<ProcedurePriceDto>> getProcedurePriceList(Pageable page) {

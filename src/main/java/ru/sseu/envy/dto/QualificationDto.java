@@ -1,6 +1,5 @@
 package ru.sseu.envy.dto;
 
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +13,6 @@ import java.util.UUID;
 @Accessors(chain = true)
 public class QualificationDto {
 
-    @Setter(AccessLevel.NONE)
     private UUID uuid;
 
     private String name;

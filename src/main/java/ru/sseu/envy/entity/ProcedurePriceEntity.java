@@ -22,6 +22,9 @@ public class ProcedurePriceEntity {
     public void init() {
         this.setUuid(UUID.randomUUID());
     }
+    /**
+     * Уникальный идендификатор процедуры
+     */
 
     @Column(name = "procedure_id", updatable = false, insertable = false)
     private Integer procedureId;
@@ -30,6 +33,10 @@ public class ProcedurePriceEntity {
     @JoinColumn(name = "procedure_id")
     private ProcedureEntity procedure;
 
+    /**
+     * Уникальный идендификатор квалификации
+     */
+
     @Column(name = "qualification_id", insertable = false, updatable = false)
     private Integer qualificationId;
 
@@ -37,8 +44,16 @@ public class ProcedurePriceEntity {
     @JoinColumn(name = "qualification_id")
     private QualificationEntity qualification;
 
+    /**
+     * Цена услуги
+     */
+
     @Column(name = "price")
     private Double price;
+
+    /**
+     * Возможность скидки
+     */
 
     @Column(name = "discount_available")
     private boolean discountAvailable;

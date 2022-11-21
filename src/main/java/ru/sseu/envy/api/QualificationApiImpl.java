@@ -11,16 +11,16 @@ import ru.sseu.envy.service.QualificationService;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * Реализация API по работе с квалификациями
+ */
 @Controller
 @RequiredArgsConstructor
 public class QualificationApiImpl implements QualificationApi {
 
-    private QualificationService service;
+    private final QualificationService service;
 
-    private QualificationMapper mapper;
-
-    private PageMapper<QualificationDto> pageMapper;
+    private final PageMapper<QualificationDto> pageMapper;
 
     @Override
     public ResponseEntity<QualificationDto> getQualification(UUID uuid) {

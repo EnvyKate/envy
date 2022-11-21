@@ -8,7 +8,9 @@ import ru.sseu.envy.dto.ProcedureDto;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * API по работе с процедурами
+ */
 @RestController
 @RequestMapping(value = "/api/v1/procedure", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface ProcedureApi {

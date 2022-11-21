@@ -36,7 +36,7 @@ public class DiscountEntity {
     /**
      * Размер скидки (множитель на стоимость услуги)
      */
-    @Column(name = "discount")
+    @Column(name = "discount_value")
     private Double discountValue;
 
 }

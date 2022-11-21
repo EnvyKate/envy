@@ -8,7 +8,9 @@ import ru.sseu.envy.dto.QualificationDto;
 
 import java.util.List;
 import java.util.UUID;
-
+/**
+ * API по работе с квалификациями
+ */
 @RestController
 @RequestMapping(value = "/api/v1/qualification", produces = MediaType.APPLICATION_JSON_VALUE)
 public interface QualificationApi {

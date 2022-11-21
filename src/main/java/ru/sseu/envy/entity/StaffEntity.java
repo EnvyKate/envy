@@ -40,7 +40,9 @@ public class StaffEntity {
      */
     @Column(name = "hire_date", updatable = false, nullable = false)
     private LocalDate hireDate;
-
+    /**
+     * Уникальный идендификатор квалификации
+     */
     @Column(name = "qualification_id", insertable = false, updatable = false)
     private Integer qualificationId;
 
